@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:gravity="center"
+    tools:context=".SudokuActivity">
+
+
+    <!--TextView to show user turns and winner-->
+
+    <!--Button to reset game board-->
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="410dp"
+        android:layout_height="46dp"
+        android:layout_above="@+id/btnConfirm"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/lblTimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableNumbers1">
+
+
+        <Button
+            android:id="@+id/btnHint"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_margin="1dp"
+            android:autoText="false"
+            android:background="@drawable/btnbackground"
+            android:fadingEdge="none"
+            android:foreground="@android:drawable/ic_menu_help"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="2.5sp"
+            android:translationX="-100dp"
+            app:backgroundTint="#4CAF50"
+            app:iconTint="#000000" />
+
+        <Button
+            android:id="@+id/number0"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="41dp"
+            android:layout_height="45dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/buttonshape"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textColor="#FFFFFF"
+            android:textSize="2.5sp" />
+
+        <Button
+            android:id="@+id/btnColor"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/btnbackground"
+            android:foreground="@drawable/ic_paint"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="2.5sp"
+            android:translationX="100dp"
+            app:backgroundTint="#4CAF50"
+            app:iconTint="#000000" />
+
+    </TableRow>
+
+    <TextView
+        android:id="@+id/lblTitle"
+        android:layout_width="349dp"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center_horizontal|top|center_vertical"
+        android:padding="8dp"
+        android:text="@string/Sudoku"
+        android:textColor="@color/purple_500"
+        android:textSize="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="167dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/btnNew"
+        android:layout_toLeftOf="@+id/btnNew"
+        android:layout_toEndOf="@+id/btnAgain"
+        android:layout_toRightOf="@+id/btnAgain"
+        android:background="@drawable/btnbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="8dp"
+        android:text="@string/Confirm"
+        android:textColor="#FFFFFF"
+        android:textSize="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnAgain" />
+
+    <Button
+        android:id="@+id/btnNew"
+        android:layout_width="78dp"
+        android:layout_height="43dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btnbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="8dp"
+        android:text="@string/New"
+        android:textColor="#FFFFFF"
+        android:textSize="4sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnConfirm" />
+
+    <Button
+        android:id="@+id/btnAgain"
+        android:layout_width="78dp"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btnbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="8dp"
+        android:text="@string/Again"
+        android:textColor="#FFFFFF"
+        android:textSize="3.5sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnConfirm" />
+
+    <TextView
+        android:id="@+id/lblTimer"
+        android:layout_width="190dp"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="00:00:00"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TableRow
+        android:id="@+id/tableNumbers1"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/btnConfirm"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SudokuTableFragment">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="0dp">
+
+            <Button
+                android:id="@+id/number1"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/uno"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+
+            <Button
+                android:id="@+id/number2"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/due"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+
+            <Button
+                android:id="@+id/number3"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/tre"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+
+            <Button
+                android:id="@+id/number4"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/quattro"
+                android:textColor="#FFFFFF"
+                android:textSize="2.7sp" />
+
+            <Button
+                android:id="@+id/number5"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/cinque"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+
+            <Button
+                android:id="@+id/number6"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/sei"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+
+            <Button
+                android:id="@+id/number7"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/sette"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+
+            <Button
+                android:id="@+id/number8"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/otto"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+
+            <Button
+                android:id="@+id/number9"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/buttonshape"
+                android:gravity="center"
+                android:text="@string/nove"
+                android:textColor="#FFFFFF"
+                android:textSize="3sp" />
+        </TableRow>
+
+
+    </TableRow>
+
+    <fragment
+        android:id="@+id/SudokuTableFragment"
+        android:name="com.example.lamiaapp.SudokuTableFragment"
+        android:layout_width="400dp"
+        android:layout_height="392dp"
+        android:layout_above="@+id/tableNumbers1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableNumbers1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
